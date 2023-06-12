@@ -45,7 +45,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             >
               <Box
                 sx={{
-                  height: "calc(100svh - 4rem)",
+                  height: "calc(100svh - 7rem)",
                   overflowY: "scroll",
                 }}
               >
