@@ -9,20 +9,18 @@ import {
   CssBaseline,
   Switch,
   FormControlLabel,
+  Container,
+  Box,
 } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, PropsWithChildren, useState } from "react";
+import Footer from "./components/Footer";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   let [useDarkTheme, setUseDarkTheme] = useState(false);
-  let [theme, setTheme] = useState(useDarkTheme ? darkTheme : lightTheme);
 
+  const theme = useDarkTheme ? darkTheme : lightTheme;
   const changeThemeHandler = (target: ChangeEvent, currentValue: boolean) => {
     setUseDarkTheme(currentValue);
-    setTheme(currentValue ? darkTheme : lightTheme);
   };
 
   return (
@@ -37,20 +35,37 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <body id="__next">
             <CssBaseline />
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={useDarkTheme}
-                  inputProps={{ "aria-label": "Dark Mode" }}
-                  onChange={(target, value) =>
-                    changeThemeHandler(target, value)
+            <Container
+              maxWidth="xs"
+              sx={{
+                bgcolor: "red",
+                height: "100svh",
+                padding: 0,
+              }}
+            >
+              <Box
+                sx={{
+                  height: "calc(100svh - 4rem)",
+                  overflowY: "scroll",
+                }}
+              >
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={useDarkTheme}
+                      inputProps={{ "aria-label": "Dark Mode" }}
+                      onChange={(target, value) =>
+                        changeThemeHandler(target, value)
+                      }
+                    ></Switch>
                   }
-                ></Switch>
-              }
-              label="Dark Mode"
-              labelPlacement="start"
-            />
-            {children}
+                  label="Dark Mode"
+                  labelPlacement="start"
+                />
+                {children}
+              </Box>
+              <Footer />
+            </Container>
           </body>
         </ThemeProvider>
       </Providers>
