@@ -32,6 +32,7 @@ export const Main = ({ children }: PropsWithChildren) => {
         <Container
           maxWidth="xs"
           sx={{
+            backgroundColor: "background.paper",
             height: "100svh",
             padding: 0,
           }}

@@ -26,11 +26,11 @@ export default function Todo({ title, task }: { title: string; task: string }) {
             gutterBottom
             variant="h5"
             component="div"
-            color="text.secondary"
+            color="common.white"
           >
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="common.white">
             {task}
           </Typography>
         </CardContent>
