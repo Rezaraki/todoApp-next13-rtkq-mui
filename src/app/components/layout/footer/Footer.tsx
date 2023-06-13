@@ -32,8 +32,11 @@ export default function Footer() {
         <CenteredBox sx={{ width: "50%" }}>
           <VCenteredBox sx={{ alignItems: "center" }}>
             <Image src="./Home.svg" alt="Home icon" width={18} height={20} />
-
-            <Typography component="span" sx={{ color: appOrange }}>
+            <Typography
+              component="span"
+              /* didn't use theme so it could be server component */
+              sx={{ color: appOrange }}
+            >
               Home
             </Typography>
           </VCenteredBox>

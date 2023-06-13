@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { toggleDarkMode } from "@/redux/features/appSlice";
 import { darkTheme, lightTheme } from "@/app/theme/themes";
 import Footer from "./footer/Footer";
+import { Header } from "./Header";
 
 export const Main = ({ children }: PropsWithChildren) => {
   const { darkMode } = useAppSelector((state) => state.appSlice);
@@ -27,6 +28,7 @@ export const Main = ({ children }: PropsWithChildren) => {
     <ThemeProvider theme={theme}>
       <body id="__next">
         <CssBaseline />
+        <Header />
         <Container
           maxWidth="xs"
           sx={{
@@ -37,7 +39,7 @@ export const Main = ({ children }: PropsWithChildren) => {
         >
           <Box
             sx={{
-              height: "calc(100svh - 7rem)",
+              height: "calc(100svh - 11rem)",
               overflowY: "scroll",
             }}
           >
