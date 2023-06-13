@@ -28,15 +28,15 @@ export const Main = ({ children }: PropsWithChildren) => {
     <ThemeProvider theme={theme}>
       <body id="__next">
         <CssBaseline />
-        <Header />
+
         <Container
           maxWidth="xs"
           sx={{
-            bgcolor: "red",
             height: "100svh",
             padding: 0,
           }}
         >
+          <Header />
           <Box
             sx={{
               height: "calc(100svh - 11rem)",
