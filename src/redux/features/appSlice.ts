@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type CounterState = {
-  value: number;
-};
-
 const initialState = {
   value: 0,
-} as CounterState;
+  darkMode: false,
+};
 
-export const counter = createSlice({
-  name: "counter",
+export const appSlice = createSlice({
+  name: "appSlice",
   initialState,
   reducers: {
     reset: () => initialState,
+    toggleDarkMode: (state) => {
+      state.darkMode = !state.darkMode;
+    },
     increment: (state) => {
       state.value += 1;
     },
@@ -33,6 +33,7 @@ export const {
   incrementByAmount,
   decrement,
   decrementByAmount,
+  toggleDarkMode,
   reset,
-} = counter.actions;
-export default counter.reducer;
+} = appSlice.actions;
+export default appSlice.reducer;

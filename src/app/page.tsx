@@ -1,12 +1,12 @@
 "use client";
 
 import { useGetUsersQuery } from "@/redux/services/userApi";
-import { decrement, increment, reset } from "@/redux/features/counterSlice";
+import { decrement, increment, reset } from "@/redux/features/appSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { skipToken } from "@reduxjs/toolkit/dist/query";
 
 export default function Home() {
-  const count = useAppSelector((state) => state.counterReducer.value);
+  const count = useAppSelector((state) => state.appSlice.value);
   const dispatch = useAppDispatch();
 
   const { isLoading, isFetching, data, error } = useGetUsersQuery(skipToken);
